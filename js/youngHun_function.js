@@ -27,9 +27,13 @@ function returnUniqeLength(array) {
 
 
 
-// 원하는 숫자 랜덤하게 뽑기 처음은 원래배열을 썩는것이다. 피셔에이치 셔플 
+// 원하는 숫자 랜덤하게 뽑기 처음은 원래배열을 썩는것이다. 피셔에이치 셔플
+// total: 총뽑을 개수 
+// option: 옵션붙으면 옵션개수만큼나옴
+  // 0붙이면 총뽑을개수 나옴
+// fromZero: true면 0부터 false면 1부터
 function randomPull(total, optionLen, fromZero) {  
-  optionLen ? optionLen = optionLen : optionLen = 0;
+  optionLen ? optionLen = optionLen : optionLen = total;
   var 후보군 = Array(total)
     .fill() // undefined로 채운다
     .map(function (요소, 인덱스) { // 1대1로 짝지어줌
@@ -49,7 +53,7 @@ function randomPull(total, optionLen, fromZero) {
       셔플.push(이동값);
     }
   }else{
-    return 셔플;
+    return 셔플;  // total - optionLen 음수일때
   }  
 
   return 셔플; // 만들어진 배열 리턴
