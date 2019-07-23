@@ -91,7 +91,8 @@ function showMineNum() {
       var 칸 = Array.prototype.indexOf.call(부모tr.children, td);
 
       // 왼쪽클릭이 화면상 빈칸일때 
-      if (tbody.children[줄].children[칸].textContent === '' || tbody.children[줄].children[칸].textContent === '0') {
+      if (tbody.children[줄].children[칸].textContent === '') {
+        e.currentTarget.classList.add('opened');
         console.log('좌', tbody.children[줄].children[칸]);
         var 주변칸배열 = [];
         var 주변칸td =[];
@@ -121,13 +122,21 @@ function showMineNum() {
         // 내가클릭한 곳이 0 이면 주변 8칸 오픈 대축제~
         if(e.currentTarget.textContent === '0'){
           주변칸td.forEach(function(item){
-            item.click();
-            item.classList.add('opened');
+            setTimeout(function(){
+              if(item.classList.contains('opened') && item.textContent != ''){
+
+              }else{              
+                item.classList.add('opened');
+                item.click();
+              }   
+            }, 0)
+            // td가  이미 오픈해서 class opened 를 가지고있으면 클릭안함      
           });
         }
 
-        console.log(주변칸배열);
-        console.log(mineCount());
+        // console.log(주변칸배열);
+        // console.log(주변칸td);
+        // console.log(mineCount());
       } else if(tbody.children[줄].children[칸].textContent === 'X'){
         e.currentTarget.textContent = '펑!';
       }

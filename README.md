@@ -20,6 +20,7 @@ cf. tbody.childNodes<br>
 Array.isArray(tbody.childNodes) => false<br>
 forEach 사용가능 <br>
 
+<hr>
 
 8-3<br>
 
