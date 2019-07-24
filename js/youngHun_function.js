@@ -33,7 +33,7 @@ function returnUniqeLength(array) {
   // 0붙이면 총뽑을개수 나옴
 // fromZero: true면 0부터 false면 1부터
 function randomPull(total, optionLen, fromZero) {  
-  optionLen ? optionLen = optionLen : optionLen = total;
+  optionLen ? optionLen = optionLen : optionLen = 0;
   var 후보군 = Array(total)
     .fill() // undefined로 채운다
     .map(function (요소, 인덱스) { // 1대1로 짝지어줌

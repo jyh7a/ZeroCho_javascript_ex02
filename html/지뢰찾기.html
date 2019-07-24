@@ -7,6 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>지뢰찾기</title>
   <style>
+    *{
+      user-select: none;
+    }
+
     table {
       border-collapse: collapse;     
     }
@@ -21,14 +25,20 @@
     td.opened{
       background: #fff;
     }
+    td.exclamation{
+      background: rgb(223, 59, 59);
+    }
+    td.question{
+      background: rgb(59, 223, 95);
+    }
   </style>
 </head>
 
 <body>
 
-  <input id="hor" type="number" placeholder="가로" value="20">
-  <input id="ver" type="number" placeholder="세로" value="20">
-  <input id="mine" type="number" placeholder="지로" value="20">
+  <input id="hor" type="number" placeholder="가로" value="10">
+  <input id="ver" type="number" placeholder="세로" value="10">
+  <input id="mine" type="number" placeholder="지로" value="10">
   <button id="exec">실행</button>
 
   <table id="table">
@@ -40,6 +50,7 @@
     <tbody></tbody>
   </table>
 
+  <div id="result"></div>
 
   <script src="../js/polyfillFunction.js"></script>
   <script src="../js/youngHun_function.js"></script>
